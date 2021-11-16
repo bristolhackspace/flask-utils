@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Bristol Hackspace is a place to make things; a community of like-minded individuals centered around our space in St Philips." />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('theme.static', filename='images/favicon.png') }}" />
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('theme.static', filename='css/style.css') }}">
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <img src="{{ url_for('theme.static', filename='images/hackspacelogo300x300.png') }}" class="logo" alt="Hackspace logo"/><h1>Bristol Hackspace</h1>
+    </header>
+    <nav class="main-nav">
+        {% block navigation %}
+        {% endblock %}
+    </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>

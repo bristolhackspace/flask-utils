@@ -1,0 +1,148 @@
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+
+@font-face {
+    font-family: ocraextended;
+    src: url(ocraextended.ttf);
+}
+
+:root {
+    --background-1: #dfcbb1;
+    --background-2: #ffffff;
+    --text-primary: #1a1918;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-1: #293748;
+        --background-2: #1e252d;
+        --text-primary: #f5f0ef;
+    }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: var(--text-primary);
+  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: .01em;
+  line-height: 1.6;
+  background-color: var(--background-2);
+}
+
+a {
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.container {
+    max-width: 110rem;
+    padding: 0 2.0rem;
+    margin: 0 auto;
+}
+
+header {
+    background-color: var(--background-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-family: ocraextended, sans-serif;
+    margin: 1rem;
+    display: none;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: var(--background-1);
+    padding-bottom: 1rem;
+}
+
+.member-nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+nav a {
+    line-height: 3rem;
+    text-decoration: none;
+    padding: 0 2rem;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: var(--text-primary);
+    color: var(--background-2);
+}
+
+.logo {
+    width: 5rem;
+    padding: 0.2rem;
+}
+
+/* Tool info */
+
+#tool-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0.5rem;
+    padding: 0;
+}
+
+@media screen and (min-width: 50rem) {
+    #tool-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header h1 {
+        display: block;
+    }
+}
+
+#tool-list li {
+    list-style: none;
+}
+
+.tool-list-link {
+    display: flex;
+    background-color: var(--background-1);
+    padding: 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tool-list-link:hover {
+    background-color: var(--text-primary);
+    color: var(--background-1);
+}
+
+.toolicon {
+    height: 10rem;
+    width: 10rem;
+    object-fit: cover;
+}
+
+.tool-name {
+    font-size: 2.8rem;
+    margin: 0 0.5rem;
+    text-align: center;
+    flex-grow: 1;
+}
