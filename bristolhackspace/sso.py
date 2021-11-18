@@ -14,11 +14,12 @@ class BaseDiscourseSSO:
         self._provider_url = provider_url
 
     def on_login_fail(self):
-        raise NotImplementedError("Override in subclass")
+        return "Login failed"
 
     def on_new_login(self, args):
         member_id = int(args["external_id"][0])
         session["member_id"] = member_id
+        session["username"] = args["username"][0]
 
     def load_login_data(self):
         pass
@@ -29,6 +30,7 @@ class BaseDiscourseSSO:
     def requires_login(self, func):
         @wraps(func)
         def wrapper(*args, **kwargs):
+            response = None
             if not self.is_logged_in():
                 if "sso" in request.args and "sig" in request.args:
                     response = self._decode_sso_login(
@@ -59,7 +61,7 @@ class BaseDiscourseSSO:
             if args["nonce"][0] != session_nonce:
                 return self.on_login_fail()
 
-            self.on_valid_login(args)
+            self.on_new_login(args)
 
         except KeyError as ex:
             return self.on_login_fail()
@@ -71,7 +73,7 @@ class BaseDiscourseSSO:
         query_string = urlencode(qs)
         encoded_str = base64.b64encode(query_string.encode("utf-8"))
 
-        remote_url = URL(self._provider_url)
+        remote_url = URL(self._provider_url).with_path("/session/sso_provider")
         remote_url = remote_url.with_query(
             {
                 "sso": encoded_str.decode("utf-8"),
