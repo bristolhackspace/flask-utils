@@ -8,5 +8,6 @@ setup(
     install_requires=[
         'flask>=2.0',
         'yarl',
+        'requests',
     ],
 )
