@@ -1,97 +1,68 @@
-*,
-*:after,
-*:before {
-  box-sizing: inherit;
-}
-
 @font-face {
     font-family: ocraextended;
     src: url(ocraextended.ttf);
 }
-
-:root {
-    --background-1: #dfcbb1;
-    --background-2: #ffffff;
-    --text-primary: #1a1918;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background-1: #293748;
-        --background-2: #1e252d;
-        --text-primary: #f5f0ef;
-    }
-}
-
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-}
-
-body {
-  color: var(--text-primary);
-  font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.6em;
-  font-weight: 300;
-  letter-spacing: .01em;
-  line-height: 1.6;
-  background-color: var(--background-2);
-}
-
 a {
-    color: var(--text-primary);
-    font-weight: bold;
+    color:#cf5f03;
+}
+a:hover {
+    color:#968859;
 }
 
-.container {
-    max-width: 110rem;
-    padding: 0 2.0rem;
-    margin: 0 auto;
+p:last-child {
+    margin-bottom: 0.0rem;
 }
 
-header {
-    background-color: var(--background-1);
+.navigation {
+    background:#ebebeb;
+    border-bottom:.1rem solid #3f3f3f;
+    display:block;
+    max-width:100%;
+    width:100%;
+}
+.navigation .container {
+    padding-bottom:0;
+    padding-top:0
+}
+.navigation .navigation-list {
+    list-style: none;
+    margin-bottom: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-header h1 {
-    font-family: ocraextended, sans-serif;
-    margin: 1rem;
-    display: none;
-}
-
-.main-nav {
-    display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
-    background-color: var(--background-1);
-    padding-bottom: 1rem;
+}
+.navigation .navigation-item {
+    padding: 1rem;
+    margin: 0;
+}
+h1 .img {
+    fill:#9b4dca;
+    height:3.6rem;
+    position:relative;
+    margin-right: 0.5rem;
+}
+.navigation .navigation-title,
+.navigation .title {
+  color:#030303;
+  font-family: ocraextended, sans-serif;
+  position:relative
+}
+.navigation .navigation-link,
+.navigation .navigation-title,
+.navigation .title {
+  display:inline;
+  font-size:2.5rem;
+  line-height:5.2rem;
+  padding:0;
+  text-decoration:none
+}
+.navigation .title:hover {
+    color:#854000;
+}
+.navigation .navigation-link.active {
+  color:#c5b2a6
 }
 
-nav a {
-    line-height: 3rem;
-    text-decoration: none;
-    padding: 0 2rem;
-    color: var(--text-primary);
-    font-weight: bold;
+.lead {
+    font-size: 2.0rem;
 }
 
-nav a:hover {
-    background-color: var(--text-primary);
-    color: var(--background-2);
-}
-
-.logo {
-    width: 5rem;
-    padding: 0.2rem;
-}
-
-
-@media screen and (min-width: 50rem) {
-    header h1 {
-        display: block;
-    }
-}

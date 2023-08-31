@@ -9,5 +9,7 @@ setup(
         'flask>=2.0',
         'yarl',
         'requests',
+        'flask-assets',
+        'pyScss'
     ],
 )
